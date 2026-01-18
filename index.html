@@ -877,6 +877,155 @@
             outline: 3px solid var(--accent-teal);
             outline-offset: 3px;
         }
+
+        /* Economy Badge */
+        .economy-badge {
+            background: linear-gradient(135deg, rgba(82, 166, 117, 0.1), rgba(75, 155, 142, 0.1));
+            border: 2px solid var(--success-green);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+
+        .economy-badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .economy-badge-text {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .economy-badge-text strong {
+            color: var(--success-green);
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        /* App Mockup Section */
+        .app-mockup-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .app-mockup-image {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(135deg, rgba(43, 95, 127, 0.03) 0%, rgba(75, 155, 142, 0.03) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--soft-gray);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-teal);
+            box-shadow: 0 10px 30px rgba(43, 95, 127, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .testimonial-caption {
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        .testimonial-verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--success-green);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            border: 2px solid var(--soft-gray);
+        }
+
+        .trust-badge-icon {
+            width: 50px;
+            height: auto;
+        }
+
+        .trust-badge-text {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.4;
+        }
+
+        .trust-badge-text strong {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .economy-badge {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .economy-badge-text {
+                font-size: 1.1rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -896,6 +1045,16 @@
             <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Quero Acertar na Minha Coleção</a>
         </div>
     </section>
+
+    <!-- Economy Badge -->
+    <div class="container">
+        <div class="economy-badge">
+            <div class="economy-badge-icon">💰</div>
+            <p class="economy-badge-text">
+                Economia média de <strong>R$ 500+</strong> evitando comprar o perfume que não combina com você!
+            </p>
+        </div>
+    </div>
 
     <!-- Problem Section -->
     <section class="proust-section">
@@ -979,6 +1138,11 @@
             <p class="section-subtitle">
                 O único curso de perfumaria masculina com App + IA integrado
             </p>
+            
+            <!-- App Mockup -->
+            <div class="app-mockup-section">
+                <img src="images/app-mockup.png" alt="Mapa da Coleção Perfeita - App em Múltiplos Dispositivos" class="app-mockup-image">
+            </div>
             
             <div class="course-features">
                 <div class="feature-card">
@@ -1182,7 +1346,8 @@
                 
                 <div class="price-comparison">
                     Menos que <strong>UM FRASCO</strong> de perfume importado<br>
-                    e o suficiente para <strong>ECONOMIZAR R$ 500+</strong> por ano
+                    e o suficiente para <strong>ECONOMIZAR R$ 500+</strong> por ano<br>
+                    evitando compras erradas!
                 </div>
                 
                 <p class="price-savings">
@@ -1192,6 +1357,24 @@
                 <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" style="width: 100%; display: block; text-align: center; margin-top: 2rem;" onclick="fbq('track', 'AddToCart');">
                     Quero Economizar Agora
                 </a>
+                
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <img src="images/hotmart-logo.png" alt="Hotmart" class="trust-badge-icon">
+                        <div class="trust-badge-text">
+                            <strong>Pagamento Seguro</strong>
+                            Processado pela Hotmart
+                        </div>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon" style="font-size: 2.5rem;">🔒</div>
+                        <div class="trust-badge-text">
+                            <strong>100% Seguro</strong>
+                            Certificado SSL
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="guarantee">
                     <div class="guarantee-badge">✓ GARANTIA DE 7 DIAS</div>
@@ -1206,6 +1389,76 @@
                 Você pode continuar errando ou pode<br>
                 <strong style="color: var(--primary-blue);">TER ACESSO IMEDIATO AGORA MESMO.</strong>
             </p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">
+                O Que Nossos <span>Alunos Dizem</span>
+            </h2>
+            <p class="section-subtitle">
+                Resultados reais de quem já usa o Mapa da Coleção Perfeita
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="images/depoimento-1.jpg" alt="Depoimento aluno - Cara achei sensacional" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-2.jpg" alt="Depoimento Instagram - Conteúdo autêntico e original" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Instagram Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-3.jpg" alt="Depoimento aluno - Muito obrigado por sua análise" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-4.jpg" alt="Depoimento aluno - Análise vai me ajudar a diversificar" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-5.jpg" alt="Depoimento aluno - Continue com seu conteúdo" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-6.jpg" alt="Depoimento aluno - Que show mais completo impossível" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-7.jpg" alt="Depoimento aluno - Muito obrigado análise é puro ouro" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <img src="images/depoimento-8.jpg" alt="Depoimento aluno - Gostei demais das sugestões" class="testimonial-image">
+                    <div class="testimonial-caption">
+                        <span class="testimonial-verified-badge">✓ Depoimento Real</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
