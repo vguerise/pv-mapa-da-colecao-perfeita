@@ -65,7 +65,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             padding: 3rem 2rem 2rem;
             position: relative;
             overflow: hidden;
@@ -84,7 +83,7 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            opacity: 0.12;
+            opacity: 0.06;
             z-index: 1;
         }
 
@@ -95,58 +94,155 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, 
-                rgba(248, 246, 243, 0.7) 0%, 
-                rgba(248, 246, 243, 0.5) 50%, 
-                rgba(248, 246, 243, 0.7) 100%);
+            background: linear-gradient(to right, 
+                rgba(248, 246, 243, 0.98) 0%, 
+                rgba(248, 246, 243, 0.92) 40%, 
+                rgba(248, 246, 243, 0.85) 60%,
+                rgba(248, 246, 243, 0.75) 100%);
             z-index: 1;
         }
 
+        .hero-container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
         .hero-content {
-            max-width: 900px;
             z-index: 2;
             position: relative;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .hero-question-box {
+            background: linear-gradient(135deg, rgba(224, 122, 95, 0.12), rgba(224, 122, 95, 0.08));
+            border-left: 4px solid var(--alert-coral);
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
             margin-bottom: 2rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .hero-question-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            color: var(--alert-coral);
+        }
+
+        .hero-question-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-weight: 600;
+            text-align: left;
         }
 
         .hero-headline {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
             color: var(--text-dark);
-        }
-
-        .hero-headline span {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            text-align: left;
         }
 
         .hero-subheadline {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            margin-bottom: 2rem;
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
             color: var(--text-medium);
-            font-weight: 400;
             line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            text-align: left;
         }
 
         .hero-subheadline strong {
             color: var(--primary-blue);
-            font-weight: 600;
+            font-weight: 700;
+        }
+
+        .hero-checklist {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            padding: 0;
+        }
+
+        .hero-checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .hero-checklist-icon {
+            color: var(--success-green);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .hero-image-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 650px;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.2));
+        }
+
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-question-box {
+                text-align: left;
+            }
+
+            .hero-question-text {
+                text-align: left;
+            }
+
+            .hero-headline,
+            .hero-subheadline {
+                text-align: center;
+            }
+
+            .hero-checklist-item {
+                text-align: left;
+            }
+
+            .hero-image {
+                max-height: 450px;
+            }
+
+            .hero::after {
+                background: linear-gradient(to bottom, 
+                    rgba(248, 246, 243, 0.98) 0%, 
+                    rgba(248, 246, 243, 0.92) 60%, 
+                    rgba(248, 246, 243, 0.85) 100%);
+            }
         }
 
         .cta-button {
@@ -1400,17 +1496,44 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">🎓 Método Científico + IA</span>
-            <h1 class="hero-headline">
-                Cansado de não saber <span>qual perfume comprar?</span>
-            </h1>
-            <p class="hero-subheadline">
-                Enquanto PDFs e vídeos no YouTube te deixam perdido,<br>
-                <strong>EU TE ENTREGO UM MÉTODO CIENTÍFICO<br>
-                E UM APP COM IA PARA NUNCA MAIS ERRAR.</strong>
-            </p>
-            <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Quero Acertar na Minha Coleção</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-question-box">
+                    <div class="hero-question-icon">❓</div>
+                    <div class="hero-question-text">
+                        Por que parece que você sempre passa imperceptível pelos lugares e alguns caras chamam toda atenção?
+                    </div>
+                </div>
+                
+                <h1 class="hero-headline">
+                    Comprar um perfume não é questão de pegar o mais caro ou o da moda, mas de entender o que você gosta para escolher o perfume certo.
+                </h1>
+                
+                <p class="hero-subheadline">
+                    Agora você tem um <strong>Mapa para acertar sempre.</strong>
+                </p>
+                
+                <ul class="hero-checklist">
+                    <li class="hero-checklist-item">
+                        <span class="hero-checklist-icon">✓</span>
+                        <span>um app que analisa e te da sugestões personalizadas com i.a.</span>
+                    </li>
+                    <li class="hero-checklist-item">
+                        <span class="hero-checklist-icon">✓</span>
+                        <span>nomes, preços, categorias e diagnóstico da sua coleção em tempo real</span>
+                    </li>
+                    <li class="hero-checklist-item">
+                        <span class="hero-checklist-icon">✓</span>
+                        <span>aulas práticas e objetivas que vão ensinar tudo que precisa saber, sem enrolação.</span>
+                    </li>
+                </ul>
+                
+                <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Quero Acertar na Minha Coleção</a>
+            </div>
+            
+            <div class="hero-image-container">
+                <img src="images/victor-corpo-inteiro.png" alt="Victor Guerise" class="hero-image">
+            </div>
         </div>
     </section>
 
@@ -1769,38 +1892,6 @@
             </h2>
             
             <div class="comparison-grid">
-                <div class="comparison-card fake">
-                    <h3 class="comparison-title fake">❌ Jeito Errado</h3>
-                    <p style="text-align: center; margin-bottom: 2rem; color: var(--text-medium);">
-                        (PDFs e YouTube)
-                    </p>
-                    
-                    <div class="comparison-item">
-                        <span class="comparison-icon cross">✕</span>
-                        <span>Informação genérica e desatualizada que não se aplica à sua realidade</span>
-                    </div>
-                    
-                    <div class="comparison-item">
-                        <span class="comparison-icon cross">✕</span>
-                        <span>Sem diagnóstico personalizado - você continua no escuro</span>
-                    </div>
-                    
-                    <div class="comparison-item">
-                        <span class="comparison-icon cross">✕</span>
-                        <span>Não acompanha sua evolução nem te mostra próximos passos</span>
-                    </div>
-                    
-                    <div class="comparison-item">
-                        <span class="comparison-icon cross">✕</span>
-                        <span>Você fica perdido sozinho, sem saber o que fazer</span>
-                    </div>
-                    
-                    <div class="comparison-item">
-                        <span class="comparison-icon cross">✕</span>
-                        <span>Conteúdo estático que envelhece em 6 meses</span>
-                    </div>
-                </div>
-                
                 <div class="comparison-card real">
                     <h3 class="comparison-title real">✓ Jeito Certo</h3>
                     <p style="text-align: center; margin-bottom: 2rem; color: var(--text-medium);">
@@ -1830,6 +1921,38 @@
                     <div class="comparison-item">
                         <span class="comparison-icon check">✓</span>
                         <span>Gamificação que torna o processo divertido e engajante</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-card fake">
+                    <h3 class="comparison-title fake">❌ Jeito Errado</h3>
+                    <p style="text-align: center; margin-bottom: 2rem; color: var(--text-medium);">
+                        (PDFs e YouTube)
+                    </p>
+                    
+                    <div class="comparison-item">
+                        <span class="comparison-icon cross">✕</span>
+                        <span>Informação genérica e desatualizada que não se aplica à sua realidade</span>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <span class="comparison-icon cross">✕</span>
+                        <span>Sem diagnóstico personalizado - você continua no escuro</span>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <span class="comparison-icon cross">✕</span>
+                        <span>Não acompanha sua evolução nem te mostra próximos passos</span>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <span class="comparison-icon cross">✕</span>
+                        <span>Você fica perdido sozinho, sem saber o que fazer</span>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <span class="comparison-icon cross">✕</span>
+                        <span>Conteúdo estático que envelhece em 6 meses</span>
                     </div>
                 </div>
             </div>
