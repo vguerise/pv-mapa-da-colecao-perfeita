@@ -978,6 +978,54 @@
             font-size: 1.4rem;
         }
 
+        /* Social Proof Badge */
+        .social-proof-badge {
+            background: linear-gradient(135deg, rgba(43, 95, 127, 0.08), rgba(75, 155, 142, 0.08));
+            border: 2px solid var(--primary-blue);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-proof-icon {
+            font-size: 2.5rem;
+        }
+
+        .social-proof-content {
+            text-align: left;
+        }
+
+        .social-proof-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .social-proof-text {
+            font-size: 1rem;
+            color: var(--text-medium);
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .social-proof-badge {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-proof-content {
+                text-align: center;
+            }
+        }
+
         /* App Mockup Section */
         .app-mockup-section {
             text-align: center;
@@ -1360,6 +1408,17 @@
             <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Quero Acertar na Minha Coleção</a>
         </div>
     </section>
+
+    <!-- Social Proof Badge -->
+    <div class="container">
+        <div class="social-proof-badge">
+            <div class="social-proof-icon">👥</div>
+            <div class="social-proof-content">
+                <div class="social-proof-number">Mais de 150 alunos</div>
+                <div class="social-proof-text">com suas coleções mapeadas e com sugestões personalizadas para cada um!</div>
+            </div>
+        </div>
+    </div>
 
     <!-- Economy Badge -->
     <div class="container">
