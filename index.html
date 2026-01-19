@@ -106,7 +106,7 @@
             max-width: 1400px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 3rem;
             align-items: center;
             position: relative;
@@ -152,6 +152,13 @@
             text-align: left;
         }
 
+        .hero-headline .highlight {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .hero-subheadline {
             font-size: clamp(1.15rem, 2vw, 1.5rem);
             color: var(--text-medium);
@@ -189,21 +196,29 @@
             margin-top: 0.1rem;
         }
 
-        .hero-image-container {
+        .hero-mockup-container {
             position: relative;
             z-index: 2;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
-            height: 100%;
+            align-items: center;
+            padding: 2rem 0;
         }
 
-        .hero-image {
-            max-width: 100%;
+        .hero-mockup {
+            max-width: 90%;
             height: auto;
-            max-height: 650px;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 20px 60px rgba(43, 95, 127, 0.25));
+            animation: floatMockup 6s ease-in-out infinite;
+        }
+
+        @keyframes floatMockup {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         @media (max-width: 968px) {
@@ -233,8 +248,8 @@
                 text-align: left;
             }
 
-            .hero-image {
-                max-height: 450px;
+            .hero-mockup {
+                max-width: 70%;
             }
 
             .hero::after {
@@ -1506,7 +1521,7 @@
                 </div>
                 
                 <h1 class="hero-headline">
-                    Comprar um perfume não é questão de pegar o mais caro ou o da moda, mas de entender o que você gosta para escolher o perfume certo.
+                    Comprar um perfume não é questão de pegar <span class="highlight">o mais caro ou o da moda</span>, mas de entender o que você gosta para escolher <span class="highlight">o perfume certo.</span>
                 </h1>
                 
                 <p class="hero-subheadline">
@@ -1528,11 +1543,11 @@
                     </li>
                 </ul>
                 
-                <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Quero Acertar na Minha Coleção</a>
+                <a href="https://pay.hotmart.com/G103674727A?checkoutMode=10" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Quero ter meu Mapa!</a>
             </div>
             
-            <div class="hero-image-container">
-                <img src="images/victor-corpo-inteiro.png" alt="Victor Guerise" class="hero-image">
+            <div class="hero-mockup-container">
+                <img src="images/app-mockup.png" alt="Mapa da Coleção Perfeita App" class="hero-mockup">
             </div>
         </div>
     </section>
