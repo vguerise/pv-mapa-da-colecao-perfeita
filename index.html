@@ -68,9 +68,24 @@
             text-align: center;
             padding: 3rem 2rem 2rem;
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 50%;
+            height: 100%;
+            background-image: url('images/victor-terno.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            z-index: 1;
+        }
+
+        .hero::after {
             content: '';
             position: absolute;
             top: 0;
@@ -78,6 +93,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 30% 50%, rgba(75, 155, 142, 0.08) 0%, transparent 50%);
+            z-index: 1;
         }
 
         .hero-content {
@@ -142,11 +158,21 @@
             letter-spacing: 0.5px;
             border: none;
             cursor: pointer;
+            animation: ctaGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes ctaGlow {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(82, 166, 117, 0.25), 0 0 15px rgba(82, 166, 117, 0.15);
+            }
+            50% {
+                box-shadow: 0 10px 30px rgba(82, 166, 117, 0.4), 0 0 25px rgba(82, 166, 117, 0.3);
+            }
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(82, 166, 117, 0.35);
+            box-shadow: 0 15px 40px rgba(82, 166, 117, 0.5), 0 0 35px rgba(82, 166, 117, 0.4);
         }
 
         .cta-button::after {
@@ -488,6 +514,10 @@
             box-shadow: 0 5px 20px rgba(224, 122, 95, 0.15);
         }
 
+        .pain-card {
+            cursor: pointer;
+        }
+
         .pain-checkbox {
             position: absolute;
             left: 1.5rem;
@@ -497,6 +527,25 @@
             height: 28px;
             border: 3px solid var(--alert-coral);
             border-radius: 6px;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pain-card.checked .pain-checkbox {
+            background: var(--success-green);
+            border-color: var(--success-green);
+        }
+
+        .pain-card.checked .pain-checkbox::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         .pain-text {
@@ -515,6 +564,24 @@
             padding: 1.5rem;
             border-radius: 15px;
             border: 2px solid var(--accent-teal);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .pain-verdict.active {
+            opacity: 1;
+            animation: verdictGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes verdictGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(75, 155, 142, 0.3), 0 0 30px rgba(82, 166, 117, 0.2);
+                border-color: var(--accent-teal);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(75, 155, 142, 0.5), 0 0 40px rgba(82, 166, 117, 0.4);
+                border-color: var(--success-green);
+            }
         }
 
         /* Comparison Section */
@@ -2060,6 +2127,29 @@
                 floatingCta.style.opacity = '1';
                 floatingCta.style.pointerEvents = 'auto';
             }
+        });
+
+        // Interactive Pain Point Checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const painCards = document.querySelectorAll('.pain-card');
+            const painVerdict = document.querySelector('.pain-verdict');
+            let checkedCount = 0;
+
+            painCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('checked');
+                    
+                    // Update count
+                    checkedCount = document.querySelectorAll('.pain-card.checked').length;
+                    
+                    // Activate verdict glow if 2 or more checked
+                    if (checkedCount >= 2) {
+                        painVerdict.classList.add('active');
+                    } else {
+                        painVerdict.classList.remove('active');
+                    }
+                });
+            });
         });
 
         // Facebook Pixel Custom Events
